@@ -419,7 +419,7 @@ The non-fast-forward merge preserves a visible merge commit, making the developm
 The following screenshot shows the actual Git commit history of the project, including the development branch, merge commit, and final version.
 
 <p align="center">
-  <img src="docs/git-commit-history.png" alt="Smart Service Desk Git Commit History" width="850">
+  <img src="git-commit-history.png" alt="Smart Service Desk Git Commit History" width="850">
 </p>
 
 ---
