@@ -1,0 +1,14 @@
+# Python's auto-generated cache files - we never want to commit these
+__pycache__/
+*.pyc
+
+# Temporary file our repository creates while saving (see file_repository.py)
+*.tmp
+
+# Backup copy made if the JSON file ever gets corrupted
+data/requests.json.broken
+
+# Editor / OS clutter
+.vscode/
+.idea/
+.DS_Store
