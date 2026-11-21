@@ -1,6 +1,6 @@
 """
 tests/test_service_desk.py
---------------------------
+
 EXTRA WORK: automatic tests.
 
 A test is a small program that checks our app behaves correctly, so we do

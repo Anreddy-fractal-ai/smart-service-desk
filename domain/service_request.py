@@ -1,6 +1,6 @@
 """
 domain/service_request.py
--------------------------
+
 This file holds the ServiceRequest class - the HEART of the whole project.
 
 WHY IS THIS IN THE "DOMAIN" LAYER?
@@ -18,10 +18,10 @@ from datetime import datetime
 
 from domain.exceptions import AlreadyResolvedError, InvalidPriorityError
 
-# ---------------------------------------------------------------------------
+
 # The only values the business allows. Keeping them in one place means that
 # if the company adds "URGENT" tomorrow, we change just ONE line.
-# ---------------------------------------------------------------------------
+
 ALLOWED_PRIORITIES = ("LOW", "MEDIUM", "HIGH")
 
 STATUS_OPEN = "OPEN"
@@ -87,9 +87,9 @@ class ServiceRequest:
         self.created_on = created_on or datetime.now().strftime(TIME_FORMAT)
         self.resolved_on = resolved_on        # stays None until resolved
 
-    # ------------------------------------------------------------------
+    
     # BEHAVIOUR (what a ticket can DO)
-    # ------------------------------------------------------------------
+    
     def is_open(self):
         """Quick yes/no helper: is this ticket still waiting to be fixed?"""
         return self.status == STATUS_OPEN
@@ -113,9 +113,9 @@ class ServiceRequest:
         self.status = STATUS_RESOLVED
         self.resolved_on = datetime.now().strftime(TIME_FORMAT)
 
-    # ------------------------------------------------------------------
+    
     # CONVERTING to / from a plain dictionary
-    # ------------------------------------------------------------------
+    
     # JSON can only store simple things (text, numbers, lists, dictionaries).
     # It cannot store a "ServiceRequest object" directly. So the object
     # offers a way to turn itself into a dictionary and back.
@@ -150,9 +150,9 @@ class ServiceRequest:
             resolved_on=data.get("resolved_on"),
         )
 
-    # ------------------------------------------------------------------
+    
     # PRINTING
-    # ------------------------------------------------------------------
+    
     def short_line(self):
         """One line in the exact format the assignment shows for 'View All'."""
         return (f"{self.request_id} | {self.employee_name} | {self.issue} | "

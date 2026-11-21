@@ -1,6 +1,6 @@
 """
 main.py
--------
+
 The "front desk" of the app (the Presentation layer).
 
 This file ONLY does three things:
@@ -26,9 +26,8 @@ BASE_FOLDER = os.path.dirname(os.path.abspath(__file__))
 DATA_FILE = os.path.join(BASE_FOLDER, "data", "requests.json")
 
 
-# ----------------------------------------------------------------------
 # SCREEN HELPERS
-# ----------------------------------------------------------------------
+
 def show_menu():
     """Print the menu exactly as the assignment shows it."""
     print()
@@ -67,9 +66,9 @@ def print_full_details(ticket):
     print("-" * 40)
 
 
-# ----------------------------------------------------------------------
+
 # ONE FUNCTION PER MENU OPTION
-# ----------------------------------------------------------------------
+
 def create_flow(service):
     """Menu option 1: ask the details and create a ticket."""
     suggestion = service.next_free_id()
@@ -117,9 +116,9 @@ def resolve_flow(service):
     print(f"Request {ticket.request_id} has been marked as RESOLVED.")
 
 
-# ----------------------------------------------------------------------
+
 # THE MAIN LOOP
-# ----------------------------------------------------------------------
+
 def main():
     # Wire the layers together:  file clerk -> manager -> (this screen)
     repository = FileRepository(DATA_FILE)

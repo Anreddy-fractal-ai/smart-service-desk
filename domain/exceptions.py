@@ -1,6 +1,6 @@
 """
 domain/exceptions.py
---------------------
+
 All the "something went wrong" messages of our app live here.
 
 Think of an exception like a red flag a worker raises:

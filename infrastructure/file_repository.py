@@ -1,6 +1,6 @@
 """
 infrastructure/file_repository.py
----------------------------------
+
 This file is the app's "filing cabinet clerk".
 
 Its ONE job: read tickets from the JSON file and write tickets to the JSON file.
@@ -33,9 +33,9 @@ class FileRepository:
         # instead of touching the real data.
         self.file_path = file_path
 
-    # ------------------------------------------------------------------
+    
     # LOAD  (file -> list of tickets)
-    # ------------------------------------------------------------------
+   
     def load_all(self):
         """
         Read every ticket from the file and return them as a list.
@@ -67,9 +67,9 @@ class FileRepository:
             os.replace(self.file_path, self.file_path + ".broken")
             return []
 
-    # ------------------------------------------------------------------
+   
     # SAVE  (list of tickets -> file)
-    # ------------------------------------------------------------------
+   
     def save_all(self, requests):
         """
         Write the whole list of tickets into the file.

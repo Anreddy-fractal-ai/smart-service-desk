@@ -1,6 +1,6 @@
 """
 application/request_service.py
-------------------------------
+
 This file is the "manager" of the app. It knows WHAT the app can do
 (the use cases), but not HOW tickets are stored and not HOW things are shown.
 
@@ -41,9 +41,9 @@ class RequestService:
         for ticket in self.repository.load_all():
             self.tickets[ticket.request_id] = ticket
 
-    # ------------------------------------------------------------------
+    
     # USE CASE 1: create a request
-    # ------------------------------------------------------------------
+    
     def create_request(self, request_id, employee_name, issue, priority):
         """
         Make a new ticket, store it and save to the file.
@@ -77,16 +77,16 @@ class RequestService:
         self._save()            # assignment rule: save right after creating
         return new_ticket
 
-    # ------------------------------------------------------------------
+    
     # USE CASE 2: view all requests
-    # ------------------------------------------------------------------
+    
     def view_requests(self):
         """Return every ticket as a list (no sorting or filtering needed)."""
         return list(self.tickets.values())
 
-    # ------------------------------------------------------------------
+    
     # USE CASE 3: search one request by ID
-    # ------------------------------------------------------------------
+    
     def search_request(self, request_id):
         """Find one ticket by its ID or raise RequestNotFoundError."""
         clean_id = request_id.strip().upper()
@@ -96,9 +96,9 @@ class RequestService:
 
         return self.tickets[clean_id]
 
-    # ------------------------------------------------------------------
+    
     # USE CASE 4: resolve a request
-    # ------------------------------------------------------------------
+    
     def resolve_request(self, request_id):
         """
         Mark a ticket as RESOLVED and save.
@@ -112,9 +112,9 @@ class RequestService:
         self._save()                               # assignment rule: save after resolving
         return ticket
 
-    # ------------------------------------------------------------------
+    
     # EXTRA WORK helpers (not required by the assignment)
-    # ------------------------------------------------------------------
+    
     def next_free_id(self):
         """
         Suggest the next unused ID, e.g. if SR101 and SR102 exist -> "SR103".
@@ -135,9 +135,9 @@ class RequestService:
         resolved_count = sum(1 for t in self.tickets.values() if t.status == STATUS_RESOLVED)
         return total, open_count, resolved_count
 
-    # ------------------------------------------------------------------
+    
     # PRIVATE helper (the leading underscore means "for internal use only")
-    # ------------------------------------------------------------------
+    
     def _save(self):
         """Hand the current list of tickets to the filing clerk to write down."""
         self.repository.save_all(self.view_requests())
