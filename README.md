@@ -231,11 +231,9 @@ The tests use a temporary file, so your real `data/requests.json` is never chang
 
 ---
 
-## 8. Quick answers for the evaluation questions
+### Screenshot of Git Commit History
 
-- **Why does `ServiceRequest` belong to the Domain layer?** It describes the business idea of a ticket and its rules. It has no knowledge of files, menus or screens.
-- **Where is the OPEN to RESOLVED rule?** In `ServiceRequest.resolve()` in `domain/service_request.py`. `RequestService.resolve_request()` only calls it.
-- **Why is JSON handling outside the domain class?** So the business rules do not depend on how data is stored. Changing storage only touches `file_repository.py`.
-- **Custom exception example:** search for `SR999`. `RequestNotFoundError` is raised in `RequestService.search_request()` and caught in `main.py`, which prints `Oops: Request SR999 not found.`
-- **Persistence proof:** create and resolve `SR101`, exit, start again, search `SR101`. It still shows `RESOLVED`.
-- **Git graph:** `git log --oneline --graph --all` shows the commits made on `development` and the merge commit that brought them into `main`.
+The following screenshot shows the actual Git commit history,
+including the development branch, merge commit, and final version.
+
+![Git Commit History](git-commit-history.png)
